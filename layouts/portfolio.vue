@@ -2,7 +2,30 @@
   <div>
     <header>
       <Topbar />
+      <MainMenu />
     </header>
-    <nuxt />
+    <main>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <nuxt />
+    </main>
+    <Footer />
   </div>
 </template>

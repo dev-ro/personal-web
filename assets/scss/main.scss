@@ -19,6 +19,16 @@
 @import './utils/text';
 @import './utils/popper.js';
 
+//Widgets
+@import './widgets/nav-spotify';
+
+
 // Components
-@import './components/logo';
 @import './components/topbar';
+
+@import './components/logo';
+
+@import './components/navbar';
+@import './components/social';
+
+@import './components/footer';

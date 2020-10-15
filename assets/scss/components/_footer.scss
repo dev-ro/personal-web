@@ -1,0 +1,28 @@
+footer.footer {
+    padding: 4rem 2.5rem;
+    background: $black;
+    color: $white;
+    li {
+        &:not(:last-child) {
+            margin-bottom: .67rem;
+        }
+    }
+    .qk-links {
+        
+        a {
+            padding: .3rem 20px !important;
+            border-radius: 5px;
+            color: $white;
+            font-weight: 300 !important;
+            &:hover {
+                background: $primary;
+            }
+        }
+    }
+    .title {
+        margin-bottom: 1.4rem;
+    }
+    p {
+        font-size: .9rem;
+    }
+}
