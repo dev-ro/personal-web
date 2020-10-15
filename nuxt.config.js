@@ -11,16 +11,27 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel:'stylsheet',
+        href: 'https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&display=swap'
+      },
+      {
+        rel:'stylsheet',
+        href: 'https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap'
+      },
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '@/plugins/icons.js',
+    '@/plugins/popper.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -32,7 +43,8 @@ export default {
   ],
 
   prismic: {
-    endpoint: 'https://nuxtyblog.cdn.prismic.io/api/v2' 
+    endpoint: 'https://nuxtyblog.cdn.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver'
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
