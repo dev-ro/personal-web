@@ -1,0 +1,32 @@
+#me {}
+
+.me-wrapper {
+    display: flex;
+    align-items: center;
+    .me_text {
+        color: #adadad;
+        // color: $light-blue;
+        font-size: 14rem;
+        font-weight: 800;
+    }
+
+    .me_desc {
+        width: 100%;
+        .me_name {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    }
+}
+
+@media (max-width: 990px) {
+    .me-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 390px) {
+    .me_text {
+        font-size: 7rem !important;
+    }
+}

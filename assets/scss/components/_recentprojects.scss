@@ -1,0 +1,14 @@
+
+.rc-prj-wrapper {
+  height: 420px;
+  overflow-y: scroll;
+}
+.rc-prj-box {
+  margin-bottom: 2rem;
+  .prj-des {
+    margin-top: .8rem;
+     a {
+       color: $primary;
+     }
+  }
+}

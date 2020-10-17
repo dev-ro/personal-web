@@ -1,18 +1,16 @@
 <template>
-  <footer class="footer">
+    <footer class="footer">
       <div class="container-fluid">
           <div class="row">
               <div class="col-md-3 mb-3">
                    <h6 class="title">Who I am?</h6>
-                   <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit in voluptatum harum atque. Deleniti sit similique perferendis esse animi libero, voluptatum sunt, amet est ad quasi exercitationem nisi rem quam.</p>
+                   <p class="text-muted font-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit in voluptatum harum atque. Deleniti sit similique perferendis esse animi libero, voluptatum sunt, amet est ad quasi exercitationem nisi rem quam.</p>
               </div>
               <div class="col-md-3 mb-3">
                    <h6 class="title">Quick Links</h6>
                    <ul class="reset-ul qk-links">
                         <li><a href="">Home</a></li>
                         <li><a href="">Projects</a></li>
-                        <li><a href="">Portfolio</a></li>
-                        <li><a href="">Diary</a></li>
                         <li><a href="">Gallery</a></li>
                         <li><a href="">Blogs</a></li>
                     </ul> 
@@ -35,7 +33,7 @@
               </div>
           </div>
       </div>
-  </footer>
+    </footer>
 </template>
 
 <script>

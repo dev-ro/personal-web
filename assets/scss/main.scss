@@ -18,6 +18,9 @@
 @import './utils/shadow';
 @import './utils/text';
 @import './utils/popper.js';
+@import './utils/scrollbar';
+@import './utils/links';
+@import './utils/spinner';
 
 //Widgets
 @import './widgets/nav-spotify';
@@ -30,5 +33,7 @@
 
 @import './components/navbar';
 @import './components/social';
+@import './components/me';
+@import './components/recentprojects';
 
 @import './components/footer';

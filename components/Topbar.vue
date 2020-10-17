@@ -25,8 +25,7 @@
                     </div>
                      <a href="#" slot="reference">
                         <span class="d-lg-block d-md-block d-xl-block d-sm-none">Socialize Me</span>
-                        <font-awesome-icon :icon="['fas' , 'angle-down']" class="d-block d-lg-none d-md-none d-xl-none" />
-                        <font-awesome-icon :icon="['fas' , 'angle-down']" class="ml-2" />
+                        <font-awesome-icon :icon="['fas' , 'angle-down']" class="d-block ml-2" />
                     </a>
                 </p-drpd>
             </li>
