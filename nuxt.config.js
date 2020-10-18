@@ -19,7 +19,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '@/assets/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel:'stylsheet',
         href: 'https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800&display=swap'
@@ -38,8 +38,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    {src: '@/plugins/icons.js', mode: 'client'},
-    {src: '@/plugins/popper.js', mode: 'client'},
+    {src: '@/plugins/popper.js'},
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -48,11 +47,31 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     '@nuxtjs/prismic',
+    '@nuxtjs/fontawesome',
   ],
 
   prismic: {
     endpoint: 'https://nuxtyblog.cdn.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver'
+  },
+  fontawesome: {
+    icons: {
+      solid: [
+        'faUserSecret', 
+        'faAngleDown', 
+        'faBars', 
+        'faHandshake', 
+        'faCaretLeft'
+      ],
+      brands : [
+        'faDiscord', 
+        'faFacebookF', 
+        'faTwitter', 
+        'faLinkedinIn', 
+        'faGithub', 
+        'faSpotify' 
+      ]
+    }
   },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
