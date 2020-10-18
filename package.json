@@ -16,7 +16,7 @@
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "vue-popperjs": "^2.3.0"
+    "vue-js-popover": "^1.2.1"
   },
   "devDependencies": {
     "@nuxtjs/fontawesome": "^1.1.2",

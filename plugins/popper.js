@@ -1,4 +1,4 @@
 import Vue from 'vue';
-import Popper from 'vue-popperjs';
+import Popover from 'vue-js-popover';
 
-Vue.component('p-drpd' , Popper);
+Vue.use(Popover);
