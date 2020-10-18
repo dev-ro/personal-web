@@ -7,7 +7,7 @@
                     <a href="/" class="text-dark-gray ml-1">Lorem ipsum dolor sit amet?</a>
             </popover>
             </no-ssr>
-            <font-awesome-icon v-popover:spotify 
+            <font-awesome-icon v-popover:spotify.left 
                 :icon="['fab' , 'spotify']" class="mr-2"  
                 :class="isListening ? 'animate__animated animate__heartBeat animate__infinite isActive' : ''"
             />

@@ -19,7 +19,7 @@
                     </ul>
                 </popover>
                 </no-ssr>
-                <a href="#" v-popover:social >
+                <a href="#" class="sc-me" v-popover:social >
                     <span class="d-lg-block d-md-block d-xl-block d-sm-none">Socialize Me</span>
                     <font-awesome-icon :icon="['fas' , 'angle-down']" class="d-block ml-2" />
                 </a>
