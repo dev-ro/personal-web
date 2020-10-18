@@ -4,7 +4,7 @@
           <div class="row">
               <div class="col-md-3 mb-3">
                    <h6 class="title">Who I am?</h6>
-                   <p class="text-muted font-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit in voluptatum harum atque. Deleniti sit similique perferendis esse animi libero, voluptatum sunt, amet est ad quasi exercitationem nisi rem quam.</p>
+                   <p class="text-muted font-sm">{{abt}}</p>
               </div>
               <div class="col-md-3 mb-3">
                    <h6 class="title">Quick Links</h6>
@@ -37,8 +37,19 @@
 </template>
 
 <script>
+import { EventBus } from '@/plugins/event-bus';
 export default {
-    name :'Footer'
+    name :'Footer',
+    data() {
+        return {
+            abt: ''
+        }
+    },
+    created() {
+         EventBus.$on('footer_abt' ,(abt) => {
+           this.abt = abt
+        })
+    }
 }
 </script>
 

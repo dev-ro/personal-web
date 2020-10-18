@@ -1,35 +1,56 @@
 <template>
   <nav class="navbar shadow-sm">
-      <div class="container d-flex justify-content-between">
-            <ul class="reset-ul d-flex flex-row">
-             <li><a href="">Home</a></li>
-             <li><a href=""><span class="mr-1 me"><img src="https://www.leadmeonline.com/wp-content/uploads/2018/04/user-placeholder-man-10-6.jpg" class="img-fluid" alt=""></span>ME</a></li>
-             <li><a href="">Projects</a></li>
-             <li><a href="">Gallery</a></li>
-             <li><a href="">Blogs</a></li>
-            </ul>
+      <div class="container d-flex justify-content-between align-items-center" :style="!showMenu ? 'padding-top: .8rem; padding-bottom: .8rem;' : ''">
+           <Menu v-if="showMenu" class="d-flex flex-row" />
+            <font-awesome-icon @click="hamOpen=true" :icon="['fas' , 'bars']" class="text-white d-lg-none navbar-toggler-icon"></font-awesome-icon>
            <SpotifyWidget />
       </div>
+        <SideMenu
+          :openSideMenu="hamOpen"
+          @close-side-menu="hamOpen=false"
+        />
   </nav>
 </template>
+
 
 <script>
 import SpotifyWidget from '@/widgets/SpotifyWidget';
 export default {
     name: 'MainMenu',
+    data() {
+       return {
+        factive: false,
+        showMenu: true,
+        hamOpen: false
+       }
+    },
     components: {
         SpotifyWidget
+    },
+    methods: {
+        activeMEnu() {
+
+            if(window.innerWidth <= 990) {
+                this.showMenu = false;
+            }
+            window.onresize = () => {
+                let mtm = window.matchMedia('(max-width: 990px)');
+                if(mtm.matches) {
+                this.showMenu = false;
+                } else {
+                    this.showMenu = true;
+                }
+            }
+        }
+    },
+    mounted() {
+        this.activeMEnu()
     }
 }
 </script>
 
 <style lang="scss">
-.me {
-    display: flex;
-     img {
-        width: 25px;
-        height: 25px;
-        border-radius: 100%; 
-     }
+    .navbar-toggler-icon {
+    cursor: pointer;
 }
 </style>

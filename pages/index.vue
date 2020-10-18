@@ -5,8 +5,8 @@
         <div class="me-wrapper">
           <h3 class="me_text">ME</h3>
           <div class="me_desc">
-            <h1 class="me_name">Rohit Sagar <span class="text-dark-gray font-sm">|&nbsp;Web Developer</span></h1>
-            <p class="font-sm text-dark-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus qui voluptatibus dolorum, eius placeat tempora sint esse minus ipsam perferendis, corporis molestiae. Illum optio veritatis odio facere, minima doloremque aut ab dignissimos, molestias commodi culpa iure! Quis, repudiandae. Iure nobis voluptates libero, dolorum nemo ipsa porro nulla repudiandae earum possimus iste, suscipit temporibus. Sed eum quam quaerat veritatis consequuntur quia voluptatem nulla a nam ut suscipit at deleniti, numquam laborum.</p>
+            <h1 class="me_name">{{me.full_name}} <span class="text-dark-gray font-sm">|&nbsp;{{me.designation}}</span></h1>
+            <p class="font-sm text-dark-gray">{{me.about_short}}</p>
           </div>
         </div>
       </div>
@@ -35,11 +35,52 @@
 
 <script>
 import RecentProjects from "@/widgets/RecentProjects";
+import { EventBus } from '@/plugins/event-bus';
 export default {
   layout: "portfolio",
   name: "Homepage",
+  data() {
+    return {
+      me: {
+        'full_name' : '',
+        'about_short': '',
+        'profile_image' : {
+          'url' : '',
+          'alt' : ''
+        },
+        'designation': ''
+      }
+    }
+  },
   components: {
     RecentProjects,
+  },
+  methods: {
+    async getMe() {
+      const document = await this.$prismic.api.query(
+        this.$prismic.predicates.at('document.type', 'me'),
+        {fetch: ['me.designation' , 'me.about_short' , 'me.full_name' , 'me.profile_image']}
+      );
+
+      if(document) {
+        this.me.full_name = document.results[0].data.full_name[0].text;
+        this.me.about_short = document.results[0].data.about_short;
+        this.me.designation = document.results[0].data.designation;
+        this.me.profile_image.url = document.results[0].data.profile_image.url;
+        this.me.profile_image.alt = document.results[0].data.profile_image.alt;
+        EventBus.$emit('profile_pic' , this.me.profile_image);
+        EventBus.$emit('footer_abt' , this.me.about_short);
+      } else {
+        error({
+          statusCode: 404,
+          message: 'No content'
+        })
+      }
+
+    }
+  },
+  created(){
+    this.getMe();
   },
   header() {
     return {
