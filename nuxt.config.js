@@ -10,6 +10,16 @@ export default {
     spotifySecKey: process.env.SPOTIFY_CLIENT_SECRET,
   },
 
+  // Nuxt  GlobalName (to change default html name )
+  globalName: 'bloggyBlog',
+  id: globalName => `__${globalName}`,
+  nuxt: globalName => `$${globalName}`,
+  context: globalName => `__${globalName.toUpperCase()}__`,
+  pluginPrefix: globalName => globalName,
+  readyCallback: globalName => `on${_.capitalize(globalName)}Ready`,
+  loadedCallback: globalName => `_on${_.capitalize(globalName)}Loaded`,
+
+
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'BloggyBlog',
@@ -38,6 +48,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    {src: '@/plugins/prismic.js' }, //disable prismic edit button
     {src: '@/plugins/popper.js' , mode: 'client'},
   ],
 

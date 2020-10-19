@@ -1,9 +1,14 @@
 <template>
-  <div class="row" :class="isLoading? 'h-100 position-relative' : ''">
+  <div class="row" :class="isLoading ? 'h-100 position-relative' : ''">
     <div class="overlay" v-if="isLoading">
       <div class="spinner"></div>
     </div>
-    <div v-else v-for="(prj, index) in projects" :key="index" class="col-md-6 col-sm-4 col-lg-4">
+    <div
+      v-else
+      v-for="(prj, index) in projects"
+      :key="index"
+      class="col-md-6 col-sm-4 col-lg-4"
+    >
       <div class="rc-prj-box">
         <div class="img-box">
           <img
@@ -34,25 +39,19 @@ export default {
       isLoading: false,
     };
   },
-  methods: {
-    async fetchRecentProjects() {
-      this.isLoading = true;
-      const document = await this.$prismic.api.query(
-        this.$prismic.predicates.at("document.type", "project")
-      );
+  async fetch() {
+    this.isLoading = true;
+    const document = await this.$prismic.api.query(
+      this.$prismic.predicates.at("document.type", "project")
+    );
 
-      if (document) {
-        this.isLoading = false;
-        console.log(document.results);
-        this.projects = document.results;
-      } else {
-        this.isLoading = false;
-        error({ statusCode: 404, message: "Page not found" });
-      }
-    },
-  },
-  created() {
-    this.fetchRecentProjects();
+    if (document) {
+      this.projects = document.results;
+      this.isLoading = false;
+    } else {
+      error({ statusCode: 404, message: "Page not found" });
+      this.isLoading = false;
+    }
   },
 };
 </script>
