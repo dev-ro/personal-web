@@ -48,7 +48,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    {src: '@/plugins/prismic.js' }, //disable prismic edit button
+    {src: '@/plugins/prismic.js' }, // Prismic
     {src: '@/plugins/popper.js' , mode: 'client'},
   ],
 
